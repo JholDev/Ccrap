@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,32 +45,39 @@ namespace Ccrap
 
             Console.WriteLine("Press B for binary or H for Hexidecimal");
             var key = System.Console.ReadKey(true);
-
-            if (key.Key == ConsoleKey.B)
+            char result = key.Key.ToString()[0];
+            switch (result)
             {
-                while (num >= 1)
-                {
-                    binar.Add(num % 2);
-                    num = num / 2;
+                case 'B':
+                    while (num >= 1)
+                    {
+                        binar.Add(num % 2);
+                        num = num / 2;
 
 
-                }
-                if (num <= 1)
-                {
-                    binar.Reverse();
-                    Console.WriteLine(string.Join("", binar));
+                    }
+                    if (num <= 1)
+                    {
+                        binar.Reverse();
+                        Console.WriteLine(string.Join("", binar));
 
-                }
+                    }
 
-            }
-            if (key.Key == ConsoleKey.H)
-            {
+            
+                break;
+               case 'H':
                 var hex = num.ToString("X");
 
-                Console.WriteLine(hex);
-            }
+            Console.WriteLine(hex);
+        
+                break;
+               default:
+                break;
+        }
 
-            key = Console.ReadKey(false);
+
+
+            
 
 
             Console.WriteLine("Press enter to continue or esc to close or press x to doubt or press f to pay respects...");
@@ -103,4 +110,6 @@ namespace Ccrap
         }
     }
 }
+
+
 
