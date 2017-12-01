@@ -15,16 +15,17 @@ namespace Ccrap
 
         static void Main()
         {
+            string vPath = AppDomain.CurrentDomain.BaseDirectory + "Verified.meme";
+            string aPath = AppDomain.CurrentDomain.BaseDirectory + "Agree.vbs";
 
-            if (!File.Exists(@"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Verified.txt"))
+
+            if (!File.Exists(vPath))
             {
-                File.Create(@"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Verified.txt").Dispose();
-                File.WriteAllText(@"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Verified.txt", "this file verifies that you have accepted the agreement");
-                string filePath2 = @"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Agree.vbs";
-                Process.Start(filePath2);
+                File.Create(vPath).Dispose();
+                Process.Start(aPath);
                 SystemSounds.Exclamation.Play();
             }
-            if (File.Exists(@"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Verified.txt"))
+            if (File.Exists(vPath))
             {
                 Conv();
             }
@@ -39,8 +40,7 @@ namespace Ccrap
             int num;
             Int32.TryParse(input, out num);
             List<int> binar = new List<int>();
-            string filePath = @"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Master.vbs";
-            string filePath2 = @"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Master2.vbs";
+;
 
 
             Console.WriteLine("Press B for binary or H for Hexidecimal");
@@ -77,7 +77,8 @@ namespace Ccrap
 
 
 
-            
+            string mPath = AppDomain.CurrentDomain.BaseDirectory + "Master.vbs";
+            string m2Path = AppDomain.CurrentDomain.BaseDirectory + "Master2.vbs";
 
 
             Console.WriteLine("Press enter to continue or esc to close or press x to doubt or press f to pay respects...");
@@ -89,13 +90,13 @@ namespace Ccrap
                 if (key.Key == ConsoleKey.X)
                 {
 
-                    Process.Start(filePath);
+                    Process.Start(mPath);
                     Conv();
                 }
                 if (key.Key == ConsoleKey.F)
                 {
 
-                    Process.Start(filePath2);
+                    Process.Start(m2Path);
                     Conv();
                 }
                 if (key.Key == ConsoleKey.Enter)
@@ -110,6 +111,4 @@ namespace Ccrap
         }
     }
 }
-
-
 
