@@ -38,33 +38,46 @@ namespace Ccrap
             string input = Console.ReadLine();
             int num;
             Int32.TryParse(input, out num);
-            //int count = 7;
-            //int[] binar = new int[20];
             List<int> binar = new List<int>();
             string filePath = @"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Master.vbs";
             string filePath2 = @"C:\Users\4164544\Documents\Visual Studio 2015\Projects\Ccrap\Ccrap\Master2.vbs";
 
 
+            Console.WriteLine("Press B for binary or H for Hexidecimal");
+            var key = System.Console.ReadKey(true);
 
-
-            while (num >= 1)
+            if (key.Key == ConsoleKey.B)
             {
-                binar.Add(num % 2);
-                num = num / 2;
-                //count = count - 1;
+                while (num >= 1)
+                {
+                    binar.Add(num % 2);
+                    num = num / 2;
+
+
+                }
+                if (num <= 1)
+                {
+                    binar.Reverse();
+                    Console.WriteLine(string.Join("", binar));
+
+                }
 
             }
-            if (num <= 1)
+            if (key.Key == ConsoleKey.H)
             {
-                binar.Reverse();
-                Console.WriteLine(string.Join("", binar));
-                //Console.WriteLine("Press enter to continue or esc to close and press x to doubt...");
+                var hex = num.ToString("X");
+
+                Console.WriteLine(hex);
             }
+
+            key = Console.ReadKey(false);
+
+
             Console.WriteLine("Press enter to continue or esc to close or press x to doubt or press f to pay respects...");
             Console.WriteLine(" ");
             while (true)
             {
-                var key = System.Console.ReadKey(true);
+                key = System.Console.ReadKey(true);
 
                 if (key.Key == ConsoleKey.X)
                 {
